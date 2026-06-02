@@ -4,17 +4,22 @@ static long long int compute(unsigned long long int nb_1, char operator,  unsign
 {
     switch (operator) {
         case '+':
-            return nb_1 + nb_2;
+            total = nb_1 + nb_2;
+            return total;
         case '-':
-            return nb_1 - nb_2;
+            total = nb_1 - nb_2;
+            return total;
         case '*':
-            return nb_1 * nb_2;
+            total = nb_1 * nb_2;
+            return total;
         case '/':
-            return nb_1 / nb_2;
+            total = nb_1 / nb_2;
+            return total;
         case '%':
-            return nb_1 % nb_2;
+            total = nb_1 % nb_2;
+            return total;
     }
-    return -1;
+    return total;
 }
 
 int calculator(int argc, char **argv)
