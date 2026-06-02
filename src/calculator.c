@@ -4,30 +4,30 @@ static int compute(unsigned long long int nb_1, char operator,  unsigned long lo
 
     switch (operator) {
         case '+':
-            return total += nb_2;
+            return nb_1 + nb_2;
         case '-':
-            return total -= nb_2;
+            return nb_1 - nb_2;
         case '*':
-            return total *= nb_2;
+            return nb_1 * nb_2;
         case '/':
-            return total /= nb_2;
+            return nb_1 / nb_2;
         case '%':
-            return total %= nb_2;
+            return nb_1 % nb_2;
     }
-    return total;
+    return -1;
 }
 
-int calculator(char **argv) {
-    unsigned long long int current_nb = 0;
-    char current_operator = ' ';
-    unsigned long long int next_nb = 0;
+int calculator(int argc, char **argv) {
+    unsigned long long int nb_1 = 0;
+    char operator = ' ';
+    unsigned long long int nb_2 = 0;
     long long int total = 0;
 
-    for (int i = 0; argv[i + 2] != '\0'; i + 3) {
-        current_nb = atoll(argv[i]);
-        next_nb = atoll(argv[i + 2]);
-        current_operator = argv[i];
-        total = compute(current_nb, current_operator, next_nb, total);
+    for (int i = 2; i < argc ; i += 2) {
+        nb_1 = atoll(argv[i - 1]);
+        operator = argv[i][0];
+        nb_2 = atoll(argv[i + 1]);
+        total += compute(nb_1, operator, nb_2, total);
     }
     return total;
 }
