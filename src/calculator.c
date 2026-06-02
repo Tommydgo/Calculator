@@ -24,7 +24,7 @@ int calculator(int argc, char **argv)
     unsigned long long int nb_2 = 0;
     long long int total = 0;
 
-    for (int i = 2; i < argc ; i += 2) {
+    for (int i = 2; i + 1 < argc; i += 2) {
         nb_1 = atoll(argv[i - 1]);
         operator = argv[i][0];
         nb_2 = atoll(argv[i + 1]);
