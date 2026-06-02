@@ -1,39 +1,32 @@
 #include "global_includes.h"
 
-static long long int compute(unsigned long long int nb_1, char operator,  unsigned long long int nb_2, long long int total)
+static long long int compute(long long int nb_1, char operator, long long int nb_2)
 {
     switch (operator) {
         case '+':
-            total = nb_1 + nb_2;
-            return total;
+            return nb_1 + nb_2;
         case '-':
-            total = nb_1 - nb_2;
-            return total;
+            return nb_1 - nb_2;
         case '*':
-            total = nb_1 * nb_2;
-            return total;
+            return nb_1 * nb_2;
         case '/':
-            total = nb_1 / nb_2;
-            return total;
+            return nb_1 / nb_2;
         case '%':
-            total = nb_1 % nb_2;
-            return total;
+            return nb_1 % nb_2;
     }
-    return total;
+    return nb_1;
 }
 
-int calculator(int argc, char **argv)
+long long int calculator(int argc, char **argv)
 {
-    unsigned long long int nb_1 = 0;
+    long long int total = atoll(argv[1]);
     char operator = ' ';
-    unsigned long long int nb_2 = 0;
-    long long int total = 0;
+    long long int nb_2 = 0;
 
     for (int i = 2; i + 1 < argc; i += 2) {
-        nb_1 = atoll(argv[i - 1]);
         operator = argv[i][0];
         nb_2 = atoll(argv[i + 1]);
-        total += compute(nb_1, operator, nb_2, total);
+        total = compute(total, operator, nb_2);
     }
     return total;
 }
