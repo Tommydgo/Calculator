@@ -5,5 +5,7 @@
     #include <stdlib.h>
     #include <stdio.h>
     #include <string.h>
+    #include <ctype.h>
     #include "prototypes.h"
+    #include "structs.h"
 #endif /* GLOBAL_INCLUDE_H_ */

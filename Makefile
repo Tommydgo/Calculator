@@ -1,6 +1,8 @@
 CC = gcc
 
-SRC =   src/main.c
+SRC =   src/main.c \
+		src/error_handling.c \
+		src/calculator.c
 
 OBJ = $(SRC:.c=.o)
 

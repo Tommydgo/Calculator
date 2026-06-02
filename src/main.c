@@ -1,5 +1,7 @@
 #include "global_includes.h"
 
 int main(int argc, char **argv) {
-    return SUCCESS;
+    if (check_args(argc, argv) == EXIT_FAIL)
+        return EXIT_FAIL;
+    return calculator(argv);
 }
