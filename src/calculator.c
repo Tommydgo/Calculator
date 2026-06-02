@@ -1,7 +1,7 @@
 #include "global_includes.h"
 
-static int compute(unsigned long long int nb_1, char operator,  unsigned long long int nb_2, long long int total) {
-
+static long long int compute(unsigned long long int nb_1, char operator,  unsigned long long int nb_2, long long int total)
+{
     switch (operator) {
         case '+':
             return nb_1 + nb_2;
@@ -17,7 +17,8 @@ static int compute(unsigned long long int nb_1, char operator,  unsigned long lo
     return -1;
 }
 
-int calculator(int argc, char **argv) {
+int calculator(int argc, char **argv)
+{
     unsigned long long int nb_1 = 0;
     char operator = ' ';
     unsigned long long int nb_2 = 0;
